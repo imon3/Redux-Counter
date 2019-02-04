@@ -10,19 +10,25 @@ const initialState = {
 // by our action creator. What does the reducer
 // need to do with the count in each case?
 export default (state = initialState, action) => {
-  console.log(state, action)
+
   switch (action.type) {
     case INCREMENT:
       // Fill in the body of this case
+      console.log(state)
       return {
         ...state,
-        count: action.payload.count
+        state: {
+          count: state.count++
+        }
       }
     case DECREMENT:
       // Fill in the body of this case
+      console.log(action.payload)
       return {
         ...state,
-        count: action.payload.count
+        state: {
+          count: state.count--
+        }
       }
     default:
       return state;
